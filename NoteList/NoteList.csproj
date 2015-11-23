@@ -4,16 +4,16 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{73FD83CA-110B-4F7B-B3AB-C74BD82FC95F}</ProjectGuid>
+    <ProjectGuid>{59DD8D3F-7AB7-47E0-9B8C-4ADFD5DE3606}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Calculator</RootNamespace>
+    <RootNamespace>NoteList</RootNamespace>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
-    <AssemblyName>Calculator</AssemblyName>
+    <AssemblyName>NoteList</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
   </PropertyGroup>
@@ -42,14 +42,17 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="NCalc">
-      <HintPath>..\Binaries\NCalc.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HomeScreen.cs" />
+    <Compile Include="Logic\NoteItem.cs" />
+    <Compile Include="Logic\NoteItemManager.cs" />
+    <Compile Include="Logic\NoteItemRepository.cs" />
+    <Compile Include="Logic\NoteDataBase.cs" />
+    <Compile Include="NoteItemListAdapter.cs" />
+    <Compile Include="NoteItemScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -57,13 +60,21 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\layout\HomeScreen.axml" />
+    <AndroidResource Include="Resources\layout\NoteDetails.axml" />
+    <AndroidResource Include="Resources\layout\NoteListItem.axml" />
+    <AndroidResource Include="Resources\Menu\ActionBarMenu.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\layout-land\" />
+    <Folder Include="Logic\" />
+    <Folder Include="Resources\Menu\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
