@@ -1,5 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Hello World, Click Me!</string>
+	<string name="NoteList">Note List</string>
+	<string name="Settings">Settings</string>
+	<string name="EditNote">Edit Note</string>
+	<string name="SelectPicture">Select picture</string>
+	<string name="Theme">Theme</string>
+	<string name="FontSize">Font size</string>
+	<string name="Name">Name</string>
+	<string name="Description">Description</string>
+	<string name="Priority">Priority</string>
+	<string name="PickImage">Pick image</string>
+	<string name="Date">Date</string>
+	<string name="ChangeDate">Change date</string>
+	<string name="Time">Time</string>
+	<string name="ChangeTime">Change time</string>
+	<string name="Save">Save</string>
+	<string name="Cancel">Cancel</string>
+	<string name="Edit">Edit</string>
+	<string name="Delete">Delete</string>
+	<string name="NotificationHeader">This note needs your attention.</string>
+
 	<string name="app_name">NoteList</string>
+    <string-array name="priorities">
+        <item>Minor</item>
+        <item>Major</item>
+        <item>Critical</item>
+    </string-array>
+    <string-array name="themes">
+        <item>Dark</item>
+        <item>Light</item>
+    </string-array>
+    <string-array name="font_sizes">
+        <item>16</item>
+        <item>24</item>
+        <item>32</item>
+    </string-array>
 </resources>

@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using Android.App;
 using Android.Widget;
+using Android.Graphics;
+using NoteList.DAL;
+using Uri = Android.Net.Uri;
 
 namespace NoteList
 {
@@ -9,62 +12,120 @@ namespace NoteList
 	/// </summary>
 	public class NoteItemListAdapter : BaseAdapter<NoteItem> 
 	{
-		Activity context = null;
-		IList<NoteItem> notes = new List<NoteItem>();
+		string currentTheme;
+		string currentFontSize;
 
-		public NoteItemListAdapter (Activity context, IList<NoteItem> notes) : base ()
+		readonly Activity context = null;
+		IList<NoteItem> notesToDisplay = new List<NoteItem>();
+		IList<NoteItem> allNotes = new List<NoteItem>();
+
+		public NoteItemListAdapter (Activity context, IList<NoteItem> notes, string currentTheme, string currentFontSize) : base ()
 		{
 			this.context = context;
-			this.notes = notes;
+			this.allNotes = notes;
+			this.notesToDisplay = allNotes;
+			this.currentTheme = currentTheme;
+			this.currentFontSize = currentFontSize;
 		}
 
 		public override NoteItem this[int position]
 		{
-			get { return notes[position]; }
+			get { return notesToDisplay[position]; }
 		}
 
 		public override long GetItemId (int position)
 		{
-			return position;
+			return notesToDisplay[position].ID;
 		}
 
 		public override int Count
 		{
-			get { return notes.Count; }
+			get { return notesToDisplay.Count; }
+		}
+
+		public void InvokeFilter(string text)
+		{
+			notesToDisplay = new List<NoteItem> ();
+			foreach (var note in allNotes) {
+				if (note.Description.ToLower().Contains (text.ToLower()) || 
+					note.Name.ToLower().Contains(text.ToLower())) 
+				{
+					notesToDisplay.Add (note);
+				}
+			}
+			NotifyDataSetChanged ();
 		}
 
 		public override Android.Views.View GetView (int position, Android.Views.View convertView, Android.Views.ViewGroup parent)
 		{
-			// Get our object for position
-			var item = notes[position];			
+			var item = notesToDisplay[position];
 
-			//Try to reuse convertView if it's not  null, otherwise inflate it from our item layout
-			// gives us some performance gains by not always inflating a new view
-			// will sound familiar to MonoTouch developers with UITableViewCell.DequeueReusableCell()
+			var view = (convertView ?? 
+					context.LayoutInflater.Inflate(
+						Resource.Layout.NoteListItem, 
+						parent, 
+						false)) as LinearLayout;
+			
+			var txtName = view.FindViewById<TextView>(Resource.Id.NameText);
+			var txtDescription = view.FindViewById<TextView>(Resource.Id.DescriptionText);
+			var imgPriority = view.FindViewById<ImageView>(Resource.Id.PriorityImage);
+			var imgNote = view.FindViewById<ImageView> (Resource.Id.NoteImage);
+			var txtDate = view.FindViewById<TextView> (Resource.Id.CreationDate);
 
-			//			var view = (convertView ?? 
-			//					context.LayoutInflater.Inflate(
-			//					Resource.Layout.NoteListItem, 
-			//					parent, 
-			//					false)) as LinearLayout;
-			//			// Find references to each subview in the list item's view
-			//			var txtName = view.FindViewById<TextView>(Resource.Id.NameText);
-			//			var txtDescription = view.FindViewById<TextView>(Resource.Id.NotesText);
-			//			//Assign item's values to the various subviews
-			//			txtName.SetText (item.Name, TextView.BufferType.Normal);
-			//			txtDescription.SetText (item.Notes, TextView.BufferType.Normal);
+			txtName.SetText (item.Name, TextView.BufferType.Normal);
+			txtDescription.SetText (item.Description, TextView.BufferType.Normal);
 
-			// TODO: use this code to populate the row, and remove the above view
-			var view = (convertView ??
-				context.LayoutInflater.Inflate(
-					Android.Resource.Layout.SimpleListItemChecked,
-					parent,
-					false)) as CheckedTextView;
-			view.SetText (item.Name==""?"<new note>":item.Name, TextView.BufferType.Normal);
-			//view.Checked = item.Done;
+			//var inStream = ContentResolver.OpenInputStream(Uri.Parse("http://xamarin.com/resources/design/home/devices.png"));
+			//Android.Graphics.Bitmap bm = Android.Graphics.BitmapFactory.DecodeStream(inStream);
+			imgNote.SetImageURI(Uri.Parse(item.ImageUri));
+
+			txtDate.SetText (item.CreationDate.ToString("g"), TextView.BufferType.Normal);
+			switch (item.Priority) {
+			case 0:
+				imgPriority.SetImageResource (Resource.Drawable.Minor);
+				break;
+			case 1:
+				imgPriority.SetImageResource (Resource.Drawable.Major);
+				break;
+			case 2:
+				imgPriority.SetImageResource (Resource.Drawable.Critical);
+				break;
+			}
 
 
-			//Finally return the view
+			switch (currentTheme) 
+			{
+			case "0": // Dark
+				txtName.SetTextColor (Color.White);
+				txtDescription.SetTextColor (Color.White);
+				txtDate.SetTextColor (Color.White);
+				break;
+			case "1": // Light
+				txtName.SetTextColor (Color.Blue);
+				txtDescription.SetTextColor (Color.Blue);
+				txtDate.SetTextColor (Color.Blue);
+				break;
+			}
+
+
+			switch (currentFontSize) 
+			{
+			case "0": // Small
+				txtName.SetTextSize (new Android.Util.ComplexUnitType(), 26);
+				txtDescription.SetTextSize (new Android.Util.ComplexUnitType(), 16);
+				txtDate.SetTextSize (new Android.Util.ComplexUnitType(), 12);
+				break;
+			case "1": // Medium
+				txtName.SetTextSize (new Android.Util.ComplexUnitType(), 32);
+				txtDescription.SetTextSize (new Android.Util.ComplexUnitType(), 24);
+				txtDate.SetTextSize (new Android.Util.ComplexUnitType(), 16);
+				break;
+			case "2": // Large
+				txtName.SetTextSize (new Android.Util.ComplexUnitType(), 42);
+				txtDescription.SetTextSize (new Android.Util.ComplexUnitType(), 32);
+				txtDate.SetTextSize (new Android.Util.ComplexUnitType(), 24);
+				break;
+			}
 			return view;
 		}
 	}

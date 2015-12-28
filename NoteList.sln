@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteList", "NoteList\NoteList.csproj", "{59DD8D3F-7AB7-47E0-9B8C-4ADFD5DE3606}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "NoteList.DAL", "NoteList.DAL\NoteList.DAL.shproj", "{579BD547-2865-4254-B242-8EB4DDB25288}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

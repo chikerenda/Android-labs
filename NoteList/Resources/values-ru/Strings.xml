@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="NoteList">Список заметок</string>
+	<string name="Settings">Настройки</string>
+	<string name="EditNote">Редактировать записку</string>
+	<string name="SelectPicture">Выбрать изображение</string>
+	<string name="Theme">Тема</string>
+	<string name="FontSize">Размер шрифта</string>
+	<string name="Name">Имя</string>
+	<string name="Description">Описание</string>
+	<string name="Priority">Приоритет</string>
+	<string name="PickImage">Выбрать изображение</string>
+	<string name="Date">Дата</string>
+	<string name="ChangeDate">Изменить дату</string>
+	<string name="Time">Время</string>
+	<string name="ChangeTime">Изменить время</string>
+	<string name="Save">Сохранить</string>
+	<string name="Cancel">Отменить</string>
+	<string name="Edit">Редактировать</string>
+	<string name="Delete">Удалить</string>
+	<string name="NotificationHeader">Данная записка требует вашего внимания.</string>
+
+	<string name="app_name">NoteList</string>
+    <string-array name="priorities">
+        <item>Важно</item>
+        <item>Не вано</item>
+        <item>Критично</item>
+    </string-array>
+    <string-array name="themes">
+        <item>Тёмнаа</item>
+        <item>Светлая</item>
+    </string-array>
+    <string-array name="font_sizes">
+        <item>16</item>
+        <item>24</item>
+        <item>32</item>
+    </string-array>
+</resources>

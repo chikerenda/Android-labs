@@ -1,21 +1,21 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace NoteList
+namespace NoteList.DAL
 {
-	public class NoteItemRepositoryADO 
+	public class NoteItemRepository
 	{
 		NoteDatabase db = null;
 		protected static string dbLocation;		
-		protected static NoteItemRepositoryADO me;		
+		protected static NoteItemRepository me;		
 
-		static NoteItemRepositoryADO ()
+		static NoteItemRepository ()
 		{
-			me = new NoteItemRepositoryADO();
+			me = new NoteItemRepository();
 		}
 
-		protected NoteItemRepositoryADO ()
+		protected NoteItemRepository ()
 		{
 			// set the db location
 			dbLocation = DatabaseFilePath;
@@ -28,7 +28,7 @@ namespace NoteList
 		{
 			get 
 			{ 
-				var sqliteFilename = "NoteDatabase.db3";
+				var sqliteFilename = "NoteDatabase1.db3";
 
 				#if NETFX_CORE
 				var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, sqliteFilename);
@@ -62,12 +62,12 @@ namespace NoteList
 			return me.db.GetItem(id);
 		}
 
-		public static IEnumerable<NoteItem> GetNotes ()
+		public static IEnumerable<NoteItem> GetNotes()
 		{
 			return me.db.GetItems();
 		}
 
-		public static int SaveNote (NoteItem item)
+		public static int SaveNote(NoteItem item)
 		{
 			return me.db.SaveItem(item);
 		}

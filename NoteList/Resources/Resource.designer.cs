@@ -28,6 +28,28 @@ namespace NoteList
 		{
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f050002
+			public const int font_sizes = 2131034114;
+			
+			// aapt resource value: 0x7f050000
+			public const int priorities = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int themes = 2131034113;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -45,10 +67,16 @@ namespace NoteList
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int Critical = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int monoandroidsplash = 2130837505;
+			public const int Icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Major = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int Minor = 2130837507;
 			
 			static Drawable()
 			{
@@ -63,38 +91,104 @@ namespace NoteList
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f07000a
-			public const int AddButton = 2131165194;
+			// aapt resource value: 0x7f070020
+			public const int AddButton = 2131165216;
 			
-			// aapt resource value: 0x7f070008
-			public const int CancelDeleteButton = 2131165192;
+			// aapt resource value: 0x7f070014
+			public const int CancelDeleteButton = 2131165204;
 			
-			// aapt resource value: 0x7f070002
-			public const int NameLabel = 2131165186;
+			// aapt resource value: 0x7f070018
+			public const int CreationDate = 2131165208;
 			
-			// aapt resource value: 0x7f070003
-			public const int NameText = 2131165187;
+			// aapt resource value: 0x7f07000f
+			public const int DateDisplay = 2131165199;
 			
-			// aapt resource value: 0x7f070001
-			public const int NoteDetailsHeader = 2131165185;
-			
-			// aapt resource value: 0x7f070000
-			public const int NoteList = 2131165184;
+			// aapt resource value: 0x7f070017
+			public const int DescriptionText = 2131165207;
 			
 			// aapt resource value: 0x7f070004
-			public const int NotesLabel = 2131165188;
+			public const int EditBackground = 2131165188;
 			
 			// aapt resource value: 0x7f070005
-			public const int NotesText = 2131165189;
+			public const int EditText1 = 2131165189;
 			
 			// aapt resource value: 0x7f070007
-			public const int SaveButton = 2131165191;
+			public const int EditText2 = 2131165191;
 			
-			// aapt resource value: 0x7f070006
-			public const int chkDone = 2131165190;
+			// aapt resource value: 0x7f07000d
+			public const int EditText3 = 2131165197;
+			
+			// aapt resource value: 0x7f070010
+			public const int EditText4 = 2131165200;
 			
 			// aapt resource value: 0x7f070009
-			public const int lstItemNote = 2131165193;
+			public const int EditText5 = 2131165193;
+			
+			// aapt resource value: 0x7f07001d
+			public const int FontSizeSpinner = 2131165213;
+			
+			// aapt resource value: 0x7f070000
+			public const int HomeBackground = 2131165184;
+			
+			// aapt resource value: 0x7f070002
+			public const int HomeProgressBar = 2131165186;
+			
+			// aapt resource value: 0x7f070006
+			public const int NameText = 2131165190;
+			
+			// aapt resource value: 0x7f07000b
+			public const int NoteImage = 2131165195;
+			
+			// aapt resource value: 0x7f070003
+			public const int NoteList = 2131165187;
+			
+			// aapt resource value: 0x7f070008
+			public const int NotesText = 2131165192;
+			
+			// aapt resource value: 0x7f07000e
+			public const int PickDate = 2131165198;
+			
+			// aapt resource value: 0x7f07000c
+			public const int PickImageButton = 2131165196;
+			
+			// aapt resource value: 0x7f070011
+			public const int PickTime = 2131165201;
+			
+			// aapt resource value: 0x7f07001f
+			public const int PreferencesButton = 2131165215;
+			
+			// aapt resource value: 0x7f070016
+			public const int PriorityImage = 2131165206;
+			
+			// aapt resource value: 0x7f07000a
+			public const int PrioritySpinner = 2131165194;
+			
+			// aapt resource value: 0x7f070013
+			public const int SaveButton = 2131165203;
+			
+			// aapt resource value: 0x7f07001e
+			public const int SearchButton = 2131165214;
+			
+			// aapt resource value: 0x7f070001
+			public const int SearchText = 2131165185;
+			
+			// aapt resource value: 0x7f070019
+			public const int SettingsBackground = 2131165209;
+			
+			// aapt resource value: 0x7f07001a
+			public const int SettingsText1 = 2131165210;
+			
+			// aapt resource value: 0x7f07001c
+			public const int SettingsText2 = 2131165212;
+			
+			// aapt resource value: 0x7f07001b
+			public const int ThemeSpinner = 2131165211;
+			
+			// aapt resource value: 0x7f070012
+			public const int TimeDisplay = 2131165202;
+			
+			// aapt resource value: 0x7f070015
+			public const int lstItemNote = 2131165205;
 			
 			static Id()
 			{
@@ -113,10 +207,13 @@ namespace NoteList
 			public const int HomeScreen = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int NoteDetails = 2130903041;
+			public const int NoteEditScreen = 2130903041;
 			
 			// aapt resource value: 0x7f030002
 			public const int NoteListItem = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int SettingsScreen = 2130903043;
 			
 			static Layout()
 			{
@@ -147,11 +244,65 @@ namespace NoteList
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int app_name = 2130968577;
+			// aapt resource value: 0x7f04000f
+			public const int Cancel = 2130968591;
+			
+			// aapt resource value: 0x7f04000b
+			public const int ChangeDate = 2130968587;
+			
+			// aapt resource value: 0x7f04000d
+			public const int ChangeTime = 2130968589;
+			
+			// aapt resource value: 0x7f04000a
+			public const int Date = 2130968586;
+			
+			// aapt resource value: 0x7f040011
+			public const int Delete = 2130968593;
+			
+			// aapt resource value: 0x7f040007
+			public const int Description = 2130968583;
+			
+			// aapt resource value: 0x7f040010
+			public const int Edit = 2130968592;
+			
+			// aapt resource value: 0x7f040002
+			public const int EditNote = 2130968578;
+			
+			// aapt resource value: 0x7f040005
+			public const int FontSize = 2130968581;
+			
+			// aapt resource value: 0x7f040006
+			public const int Name = 2130968582;
 			
 			// aapt resource value: 0x7f040000
-			public const int hello = 2130968576;
+			public const int NoteList = 2130968576;
+			
+			// aapt resource value: 0x7f040012
+			public const int NotificationHeader = 2130968594;
+			
+			// aapt resource value: 0x7f040009
+			public const int PickImage = 2130968585;
+			
+			// aapt resource value: 0x7f040008
+			public const int Priority = 2130968584;
+			
+			// aapt resource value: 0x7f04000e
+			public const int Save = 2130968590;
+			
+			// aapt resource value: 0x7f040003
+			public const int SelectPicture = 2130968579;
+			
+			// aapt resource value: 0x7f040001
+			public const int Settings = 2130968577;
+			
+			// aapt resource value: 0x7f040004
+			public const int Theme = 2130968580;
+			
+			// aapt resource value: 0x7f04000c
+			public const int Time = 2130968588;
+			
+			// aapt resource value: 0x7f040013
+			public const int app_name = 2130968595;
 			
 			static String()
 			{
@@ -159,22 +310,6 @@ namespace NoteList
 			}
 			
 			private String()
-			{
-			}
-		}
-		
-		public partial class Style
-		{
-			
-			// aapt resource value: 0x7f050000
-			public const int Mono_Android_Theme_Splash = 2131034112;
-			
-			static Style()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Style()
 			{
 			}
 		}

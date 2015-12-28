@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
-namespace NoteList
+namespace NoteList.DAL
 {
 	/// <summary>
 	/// Manager classes are an abstraction on the data access layers
@@ -13,22 +13,22 @@ namespace NoteList
 
 		public static NoteItem GetNote(int id)
 		{
-			return NoteItemRepositoryADO.GetNote(id);
+			return NoteItemRepository.GetNote(id);
 		}
 
-		public static IList<NoteItem> GetNotes ()
+		public static List<NoteItem> GetNotes ()
 		{
-			return new List<NoteItem>(NoteItemRepositoryADO.GetNotes());
+			return new List<NoteItem> (NoteItemRepository.GetNotes());
 		}
 
 		public static int SaveNote (NoteItem item)
 		{
-			return NoteItemRepositoryADO.SaveNote(item);
+			return NoteItemRepository.SaveNote(item);
 		}
 
 		public static int DeleteNote(int id)
 		{
-			return NoteItemRepositoryADO.DeleteNote(id);
+			return NoteItemRepository.DeleteNote(id);
 		}
 	}
 }
